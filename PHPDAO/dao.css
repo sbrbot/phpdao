@@ -1,0 +1,60 @@
+body
+{
+  color: #333;
+  font-size: 9pt;
+  font-family: 'sans serif';
+  padding-top: 70px;
+}
+
+label
+{
+  font-size: 9pt;
+  font-weight: normal;
+  margin: 20px 5px 5px;
+  color: #888;
+}
+
+table
+{
+  margin: 10px;
+  border-spacing: 1px;
+  border-collapse: separate;
+  margin: auto;
+}
+
+th
+{
+  color: white;
+  background-color: #bbb;
+  padding: 3px;
+  font-weight: bold;
+  padding: 4px;
+  border-bottom: 3px solid #888;
+}
+
+td
+{
+  color: #333;
+  background-color: #eee;
+  padding: 2px 4px;
+}
+
+h1
+{
+  color: #999;
+  font-size: 24pt;
+  margin: auto;
+  margin: 30px auto 4px;
+}
+
+h2
+{
+  color: #666;
+  font-size: 16pt;
+  margin: 20px auto 4px;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
+    color: #333;
+    background-color: #eee;
+}

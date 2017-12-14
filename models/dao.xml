@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<dao>
+  <database host="localhost" name="phpdao" user="phpdao"/>
+  <table name="categories" singular="Category" plural="Categories" active="yes">
+    <column name="catid" method="CatId" getter="yes" setter="yes" finder="yes"/>
+    <column name="catname" method="Catname" getter="yes" setter="yes" finder="no"/>
+  </table>
+  <table name="products" singular="Product" plural="Products" active="yes">
+    <column name="prodid" method="ProdId" getter="yes" setter="yes" finder="yes"/>
+    <column name="prodname" method="Prodname" getter="yes" setter="yes" finder="yes"/>
+    <column name="proddate" method="ProdDate" getter="yes" setter="yes" finder="yes"/>
+    <constraint name="prod_UNIQUE" columns="prodname,proddate" method="ProdNameAndProdDate" finder="yes"/>
+  </table>
+  <table name="services" singular="Service" plural="Services" active="yes">
+    <column name="catid" method="CatId" getter="yes" setter="yes" finder="yes"/>
+    <column name="svcid" method="SvcId" getter="yes" setter="yes" finder="yes"/>
+    <column name="svcname" method="Svcname" getter="yes" setter="yes" finder="no"/>
+  </table>
+  <table name="usages" singular="Usage" plural="Usages" active="yes">
+    <column name="prodid" method="ProdId" getter="yes" setter="yes" finder="yes"/>
+    <column name="svcid" method="SvcId" getter="yes" setter="yes" finder="yes"/>
+    <column name="date1" method="Date1" getter="yes" setter="yes" finder="no"/>
+    <column name="date2" method="Date2" getter="yes" setter="yes" finder="no"/>
+  </table>
+  <table name="v_services" singular="VService" plural="VServices" active="yes">
+    <column name="svcid" method="SvcId" getter="yes" setter="no" finder="no"/>
+    <column name="svcname" method="Svcname" getter="yes" setter="no" finder="no"/>
+    <column name="catid" method="CatId" getter="yes" setter="no" finder="no"/>
+    <column name="catname" method="Catname" getter="yes" setter="no" finder="no"/>
+  </table>
+  <table name="v_usages" singular="VUsage" plural="VUsages" active="yes">
+    <column name="svcid" method="SvcId" getter="yes" setter="no" finder="no"/>
+    <column name="svcname" method="Svcname" getter="yes" setter="no" finder="no"/>
+    <column name="date1" method="Date1" getter="yes" setter="no" finder="no"/>
+    <column name="date2" method="Date2" getter="yes" setter="no" finder="no"/>
+    <column name="prodid" method="ProdId" getter="yes" setter="no" finder="no"/>
+    <column name="prodname" method="Prodname" getter="yes" setter="no" finder="no"/>
+  </table>
+</dao>

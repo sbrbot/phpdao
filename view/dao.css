@@ -1,0 +1,41 @@
+body
+{
+  color: #333;
+  font-size: 9pt;
+  font-family: 'sans serif';
+}
+
+table
+{
+  margin: 10px;
+  border-spacing: 1px;
+  border-collapse: separate;
+  margin: auto;
+}
+
+th
+{
+  color: white;
+  background-color: #bbb;
+  padding: 3px;
+  font-weight: bold;
+}
+
+td
+{
+  color: #333;
+  background-color: #eee;
+  padding: 2px 4px;
+}
+
+h1
+{
+  color: #999;
+  font-size: 32pt;
+}
+
+h2
+{
+  color: #444;
+  font-size: 24pt;
+}
