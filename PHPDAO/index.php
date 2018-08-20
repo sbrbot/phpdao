@@ -25,10 +25,13 @@ include('navbar.inc');
             <div class="alert alert-info"><b>PHP DAO Builder</b> is web application which generates <b>persistance (DAO) layer</b> in PHP for <b>MySQL database</b>.</div>
             <p>The whole process consists of four steps:</p>
             <ol>
-              <li> Provide your credentials and connect to your MySQL database scheme for which you want to generate DAO layer.</li>
-              <li> DAO Builder will read all tables and views. Then define which tables/views should be included in your DAO layer and what should be the names of corresponding objects mapped to tables/views.</li>
-              <li> DAO Builder will read all columns from selected tables/views. Then define what columns should be included, what method created, and what should be its names. According to column attribtes read (primary key, foreign key, existence of index, etc.), DAO Builder will by default suggest optimal settings of methods.</li>
-              <li> Finally DAO layer classes will be created.</li>
+              <li> Provide your credentials and connect to your MySQL database scheme you want to generate DAO layer for.<br />
+              (Then DAO Builder will read all tables and views in given scheme.)</li>
+              <li> Define which tables/views should be included in your DAO layer and what should be the names of corresponding objects mapped to tables/views.<br />
+              (Then DAO Builder will read all columns from selected tables/views.)</li>
+              <li> Define what columns should be included, what methods created, and what should be its names.<br />
+              (By default DAO Builder will suggest optimal settings of methods according to column attributes: primary keys, foreign keys, existence of index, etc.). You can change it.</li>
+              <li> Proceed and DAO Builder will create DAO layer with classes.</li>
             </ol>
             <div class="alert alert-info"><b>PHP DAO Builder</b> stores all DAO setting (object/method names, etc.) into <b>model/dao.xml</b> for later DAO layer rebuilding.</div>
 

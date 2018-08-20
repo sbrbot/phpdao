@@ -74,7 +74,7 @@ try
   $Engine=new Engine();
 ?>
             <table class="table">
-              <tr><th>The following DAO classes are created</th></tr>
+              <tr><th>Look at the "models" subdirectory in your project,<br />the following DAO classes are created:</th></tr>
 <?php
 
   $XML=new SimpleXMLElement('<dao></dao>');

@@ -3,7 +3,7 @@
 /**
  * Description of Engine
  *
- * @author sbrbot
+ * @author Stjepan Brbot <stjepan.brbot@gmail.com>
  */
 class Engine
 {

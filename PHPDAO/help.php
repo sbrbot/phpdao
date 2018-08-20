@@ -13,7 +13,7 @@ include('navbar.inc');
 
     <div class="container">
 
-      <h1>PHP DAO Builder v3.2</h1>
+      <h1>PHP DAO Builder v3.0</h1>
 
       <hr>
 
@@ -22,10 +22,10 @@ include('navbar.inc');
       <p>This is simple web tool for automatic creation of DAO persistance layer classes from existing MySQL database schema.</p>
 
       <ul>
-        <li>lowest level of DAO class hierarchy is MySQLi database singleton class <b>DataBase</b> (for DB connection) (username/password are stored in <b>models/DAO/DA.inc</b>),</li>
-        <li>above it is abstract <b>EntityBase</b> class with generic Create/Read/Update/Delete/Save methods (<b>models/DAO/DAO.php</b>) for MySQL database in PHP,</li>
-        <li>for each database table/view one DAO class is created extending EntityBase (<b>models/DAO/classname.dao.php</b>) - these files are overwritten upon each DAO building process</li>
-        <li>finally for each database table one empty class is created (<b>models/*.php</b>) where you should add your own business logic (not overwritten upon rebild)</li>
+        <li>lowest level of DAO class hierarchy is MySQLi databse singleton class <b>DataBase</b> (for DB connection) (username/password are stored in models/DAO/DA.inc),</li>
+        <li>above it is abstract <b>EntityBase</b> class with generic Create/Read/Update/Delete/Save methods (models/DAO/DAO.php) for MySQL database in PHP,</li>
+        <li>for each database table one DAO core class is created extending EntityBase (models/DAO/*.dao.php) - these file are overwritten upon each DAO building process</li>
+        <li>finally for each database table one empty class is created (models/*.php) where you should add your own business logic</li>
       </ul>
 
       <hr>
@@ -59,7 +59,6 @@ include('navbar.inc');
       <h3>Database tables/views</h3>
       <p>The list of all tables from previously given db schema will be shown</p>
       <div class="text-center"><img src="dao1.png" alt="PHPDAO - tables/views"></div>
-      <br>
       <p>Select all tables you want to build DAO classes for. DAO PHP will try to guess name (singular and plural words) for each table/DAO class
          but don't rely on its english grammar capabilities :-). Put your own correct or other wanted names if necessary.
          For example, if you inside database have one-to-many relation between 'employees' and 'projects' tables,
@@ -68,7 +67,7 @@ include('navbar.inc');
          <b>Employee</b> class for 'employees' table and <b>getProjects()</b> function in it for retrieving related (many) objects from related table 'projects'
          and vice versa <b>getEmployee()</b> function for retrieving related (one) object inside <b>Project</b> class.</p>
       <p><u>NOTE</u>: Table comment (comment from database) will be used as initial description of class inside DAO code.
-         PHP DAO uses CamelCase naming for classes (underscores are omitted), so if table name inside database is 'employees_projects',
+         PHP DAO uses CamelCase naming for classes (underscores are onitted), so if table name inside database is 'employees_projects',
          PHP DAO will guess that class name should be <b>EmployeeProject</b> (singular) and <b>EmployeeProjects</b> (plural)</p></p>
 
       <hr>

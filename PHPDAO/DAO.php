@@ -353,9 +353,34 @@ abstract class EntityBase
   }
 
   /**
+   * Returns the simple array
+   * @param string $sql SELECT query with one column ('value')
+   * @return array ['value1','value2',...]
+   * @throws ReadException
+   */
+  protected function getArray($sql)
+  {
+    $list=array();
+
+    if($rst=$this->db->query($sql))
+    {
+      while($row=$rst->fetch_row())
+      {
+        $list[]=$row[0];
+      }
+      $rst->free();
+      return $list;
+    }
+    else
+    {
+      throw new ReadException($sql,$this->db->error,$this->db->errno);
+    }
+  }
+
+  /**
    * Returns the associative array
-   * @param string $sql SQL query with two column names in SELECT
-   * @return array('id'=>'value')
+   * @param string $sql SELECT query with two columns ('id','value')
+   * @return array ['id1'=>'value1','id2'=>'value2',...]
    * @throws ReadException
    */
   protected function getAssocArray($sql)
