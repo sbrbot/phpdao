@@ -10,6 +10,7 @@ if(isset($_POST['dao0']) || isset($_SESSION['DB_NAME']))
     $_SESSION['DB_NAME']=$_POST['DB_NAME'];
     $_SESSION['DB_USER']=$_POST['DB_USER'];
     $_SESSION['DB_PASS']=$_POST['DB_PASS'];
+    $_SESSION['DB_CHAR']=$_POST['DB_CHAR'];
   }
 }
 else
@@ -17,8 +18,6 @@ else
   header('Location: index.php');
   exit;
 }
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +40,13 @@ include('navbar.inc');
       <hr>
 
       <div id="ajax">
-        <div class="text-center"><img src="get.gif"><br>loading tables/views<br><span id="counter">0</span></div>
+        <div class="ajax text-center">
+          <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+          <br>
+          loading tables/views
+          <br>
+          <span id="counter">0</span>
+        </div>
       </div>
 
 <?php

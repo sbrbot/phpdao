@@ -36,9 +36,36 @@ class DataBase
   {
     if(!is_object(self::$db))
     {
-      self::$db = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+      mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); //Make MySQLi throw exceptions
+      try
+      {
+        self::$db = @new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+        self::setCharset(DB_CHAR);
+      }
+      catch(mysqli_sql_exception $ex)
+      {
+        throw new ConnectionException('',$ex->getMessage(),$ex->getCode());
+      }
     }
     return self::$db;
+  }
+
+  /**
+   * Returns the database character set
+   * @return string character set code
+   */
+  public static function getCharset()
+  {
+    return self::$db->character_set_name();
+  }
+
+  /**
+   * Sets the database character set
+   * @param string $charset
+   */
+  public static function setCharset($charset)
+  {
+    self::$db->set_charset(self::$charset);
   }
 
   /**
@@ -674,6 +701,11 @@ abstract class DatabaseException extends Exception
 //------------------------------------------------------------------------------
 
 /**
+ * Connection Exception
+ */
+class ConnectionException extends DatabaseException {}
+
+/**
  * Create Exception
  */
 class CreateException extends DatabaseException {}
@@ -689,14 +721,14 @@ class ReadException extends DatabaseException {}
 class UpdateException extends DatabaseException {}
 
 /**
- * Save Exception
- */
-class SaveException extends DatabaseException {}
-
-/**
  * Delete Exception
  */
 class DeleteException extends DatabaseException {}
+
+/**
+ * Save Exception
+ */
+class SaveException extends DatabaseException {}
 
 //------------------------------------------------------------------------------
 

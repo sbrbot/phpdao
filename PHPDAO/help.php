@@ -13,7 +13,7 @@ include('navbar.inc');
 
     <div class="container">
 
-      <h1>PHP DAO Builder v3.0</h1>
+      <h1>Help</h1>
 
       <hr>
 
@@ -274,7 +274,7 @@ include('navbar.inc');
           $Service->name='Truck';
           $Service->save();
         }
-        catch(DeleteException $e)
+        catch(SaveException $e)
         {
           //handle exception
         }

@@ -42,7 +42,13 @@ include('navbar.inc');
       <hr>
 
       <div id="ajax">
-        <div class="text-center"><img src="get.gif"><br>loading columns<br><span id="counter">0</span></div>
+        <div class="ajax text-center">
+          <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+          <br>
+          loading columns
+          <br>
+          <span id="counter">0</span>
+        </div>
       </div>
 
 <?php

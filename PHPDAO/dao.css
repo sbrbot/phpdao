@@ -1,9 +1,7 @@
 body
 {
   color: #333;
-  font-size: 9pt;
-  font-family: 'sans serif';
-  padding-top: 70px;
+  font-size: 11pt;
 }
 
 label
@@ -14,30 +12,6 @@ label
   color: #888;
 }
 
-table
-{
-  margin: 10px;
-  border-spacing: 1px;
-  border-collapse: separate;
-  margin: auto;
-}
-
-th
-{
-  color: white;
-  background-color: #bbb;
-  padding: 3px;
-  font-weight: bold;
-  padding: 4px;
-  border-bottom: 3px solid #888;
-}
-
-td
-{
-  color: #333;
-  background-color: #eee;
-  padding: 2px 4px;
-}
 
 h1
 {
@@ -54,7 +28,29 @@ h2
   margin: 20px auto 4px;
 }
 
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
-    color: #333;
-    background-color: #eee;
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover
+{
+  color: #333;
+  background-color: #eee;
+}
+
+.input-group-prepend i
+{
+  width: 20px;
+}
+
+.ajax
+{
+  padding: 200px;
+  background-color: #bbf;
+}
+
+.alert-danger
+{
+  padding: 200px;
+}
+
+.img-thumbnail
+{
+  margin-bottom: 10px;
 }

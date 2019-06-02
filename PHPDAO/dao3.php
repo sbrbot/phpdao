@@ -6,11 +6,11 @@ if(isset($_POST['dao2']) || isset($_SESSION['DB_NAME']))
 {
   if(isset($_POST['dao2']))
   {
-    $_SESSION['getters']=$_POST['getters']; //2D array
-    $_SESSION['setters']=$_POST['setters']; //2D array
-    $_SESSION['finders']=$_POST['finders']; //2D array
-    $_SESSION['constrs']=$_POST['constrs']; //2D array
-    $_SESSION['methods']=$_POST['methods']; //2D array
+    $_SESSION['getters'] = isset($_POST['getters']) ? $_POST['getters'] : []; //2D array
+    $_SESSION['setters'] = isset($_POST['setters']) ? $_POST['setters'] : []; //2D array
+    $_SESSION['finders'] = isset($_POST['finders']) ? $_POST['finders'] : []; //2D array
+    $_SESSION['constrs'] = isset($_POST['constrs']) ? $_POST['constrs'] : []; //2D array
+    $_SESSION['methods'] = isset($_POST['methods']) ? $_POST['methods'] : []; //2D array
     if(isset($_POST['backup']))
     {
       $_SESSION['backup']=$_POST['backup']; //backup
@@ -48,7 +48,13 @@ include('navbar.inc');
       <hr>
 
       <div id="ajax">
-        <div class="text-center"><img src="get.gif"><br>building DAO layer<br><span id="counter">0</span></div>
+        <div class="ajax text-center">
+          <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+          <br>
+          building DAO layer
+          <br>
+          <span id="counter">0</span>
+        </div>
       </div>
 
 <?php

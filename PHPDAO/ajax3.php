@@ -49,6 +49,7 @@ const DB_HOST='{$_SESSION['DB_HOST']}';
 const DB_NAME='{$_SESSION['DB_NAME']}';
 const DB_USER='{$_SESSION['DB_USER']}';
 const DB_PASS='{$_SESSION['DB_PASS']}';
+const DB_CHAR='{$_SESSION['DB_CHAR']}';
 
 ";
 fwrite($file,$da);
@@ -62,9 +63,8 @@ copy("DAO.php","../models/DAO/DAO.php") or die('Unable to write file!');
 
 ?>
       <div class="row">
-
-        <div class="col-sm-4 col-sm-offset-4">
-          <div class="thumbnail">
+        <div class="col-sm-4 offset-sm-4">
+          <div class="img-thumbnail">
 <?php
 
 require 'Engine.php';
@@ -73,8 +73,8 @@ try
 {
   $Engine=new Engine();
 ?>
-            <table class="table">
-              <tr><th>Look at the "models" subdirectory in your project,<br />the following DAO classes are created:</th></tr>
+            <table class="table bg-light table-sm">
+              <tr><td><div class="alert alert-info"><i class="fa fa-info-circle"></i> Look at the "models" subdirectory in your project, the following DAO classes are created:</div></td></tr>
 <?php
 
   $XML=new SimpleXMLElement('<dao></dao>');
@@ -85,6 +85,7 @@ try
   $XMLtable->addAttribute('host',$_SESSION['DB_HOST']);
   $XMLtable->addAttribute('name',$_SESSION['DB_NAME']);
   $XMLtable->addAttribute('user',$_SESSION['DB_USER']);
+  $XMLtable->addAttribute('charset',$_SESSION['DB_CHAR']);
 
   foreach($tvsall as $table)
   {

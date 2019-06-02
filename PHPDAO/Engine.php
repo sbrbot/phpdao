@@ -11,6 +11,7 @@ class Engine
   private $DB_NAME;
   private $DB_USER;
   private $DB_PASS;
+  private $DB_CHAR;
 
   private $db;
 
@@ -22,8 +23,10 @@ class Engine
     $this->DB_NAME=$_SESSION['DB_NAME'];
     $this->DB_USER=$_SESSION['DB_USER'];
     $this->DB_PASS=$_SESSION['DB_PASS'];
+    $this->DB_CHAR=$_SESSION['DB_CHAR'];
 
     $this->db=new mysqli($this->DB_HOST,$this->DB_USER,$this->DB_PASS,$this->DB_NAME);
+    $this->db->set_charset($this->DB_CHAR);
     if($this->db->connect_error)
     {
       throw new ConnectionException($this->db->connect_error,$this->db->connect_errno);
@@ -323,7 +326,7 @@ class English
 
   public function __construct($input)
   {
-    //split words separated by underscore and capitalize first letter
+    //split words separated by underscore and capitalize first letter (CamelCase)
     //$word=implode(array_map('ucfirst',explode('_',str_replace('s_','_',$input))));
     $word=implode(array_map('ucfirst',explode('_',$input)));
 
@@ -331,7 +334,7 @@ class English
     $uppers=['type'.'name','date','rate','categor','value','number','attrib'];
     foreach($uppers as $upper) $word=str_replace($upper,ucfirst($upper),$word);
 
-    if(substr($word,-1)==='s') // assume that word is in plural
+    if(substr($word,-1)==='s') // assume that word already is in plural
     {
       $this->plural=$word;
       //
@@ -352,7 +355,7 @@ class English
     }
 
     $this->camel=$word;
-    if(substr($word,-2)==='on') $this->camel=substr($word,0,-2).'On';
+    //if(substr($word,-2)==='on') $this->camel=substr($word,0,-2).'On';
     if(substr($word,-2)==='by') $this->camel=substr($word,0,-2).'By';
     if(substr($word,-2)==='id') $this->camel=substr($word,0,-2).'Id';
     $this->camel=str_replace('type','Type',$this->camel);

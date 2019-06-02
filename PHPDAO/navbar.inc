@@ -1,29 +1,29 @@
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">PHP DAO Builder v3.2</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav" role="menu">
 <?php
-$tabs=['dao0.php'=>'Connection','dao1.php'=>'Tables/Views','dao2.php'=>'Columns','dao3.php'=>'Builder','help.php'=>'Help'];
-foreach($tabs as $page=>$tab)
+$tabs1=['index.php'=>'<i class="fa fa-home"></i>','dao0.php'=>'Connection','dao1.php'=>'Tables/Views','dao2.php'=>'Columns','dao3.php'=>'Builder'];
+foreach($tabs1 as $page=>$tab)
 {
-  $class = ($page==basename($_SERVER['PHP_SELF'])) ? ' class="active"' : '';
-  echo '            <li'.$class.'><a href="'.$page.'">'.$tab.'</a></li>'.PHP_EOL;
+  $active = ($page==basename($_SERVER['PHP_SELF'])) ? ' active' : '';
+  echo '            <li class="nav-item'.$active.'"><a class="nav-link" role="menuitem" href="'.$page.'">'.$tab.'</a></li>'.PHP_EOL;
+}
+?>
+          </ul>
+          <ul class="nav navbar-nav ml-auto" role="menu">
+<?php
+$tabs2=['help.php'=>'<i class="fa fa-question-circle"></i>','about.php'=>'<i class="fa fa-info-circle"></i>'];
+foreach($tabs2 as $page=>$tab)
+{
+  $active = ($page==basename($_SERVER['PHP_SELF'])) ? ' active' : '';
+  echo '            <li class="nav-item'.$active.'"><a class="nav-link" role="menuitem" href="'.$page.'">'.$tab.'</a></li>'.PHP_EOL;
 }
 ?>
           </ul>
         </div>
-        <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container -->
+      </div><!-- container -->
     </nav>
