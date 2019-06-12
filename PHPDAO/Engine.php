@@ -46,7 +46,7 @@ class Engine
    */
   public function getTablesAndViews()
   {
-    $tableviews=array();
+    $tableviews=[];
 
     $sql="SELECT t.TABLE_NAME,
                  CASE WHEN t.table_type='BASE TABLE' THEN 'TABLE'
@@ -77,7 +77,7 @@ class Engine
    */
   public function getTables()
   {
-    $tables=array();
+    $tables=[];
 
     $sql="SELECT *
             FROM information_schema.TABLES
@@ -98,7 +98,7 @@ class Engine
    */
   public function getViews()
   {
-    $views=array();
+    $views=[];
 
     $sql="SELECT *
             FROM information_schema.VIEWS
@@ -120,7 +120,7 @@ class Engine
    */
   public function getColumns($tableview)
   {
-    $columns=array();
+    $columns=[];
 
     $sql="
       SELECT COLUMN_NAME
@@ -149,7 +149,7 @@ class Engine
    */
   public function getColumnsWithAttributes($tableview)
   {
-    $entities=array();
+    $entities=[];
 
     $sql="
 SELECT c.COLUMN_NAME,
@@ -216,7 +216,7 @@ SELECT c.COLUMN_NAME,
 
   public function getReferencedTables($table)
   {
-    $references=array();
+    $references=[];
 
     $sql="SELECT *
             FROM information_schema.REFERENTIAL_CONSTRAINTS
@@ -234,7 +234,7 @@ SELECT c.COLUMN_NAME,
 
   public function getCompositeUniqueConstraints($table)
   {
-    $constraints=array();
+    $constraints=[];
 
     $sql="SELECT tc.CONSTRAINT_NAME,
                  COUNT(kcu.COLUMN_NAME) AS `CONSTRAINED_NO`,
@@ -257,7 +257,7 @@ SELECT c.COLUMN_NAME,
 
   public function getReferredTables($table)
   {
-    $references=array();
+    $references=[];
 
     $sql="SELECT *
             FROM information_schema.REFERENTIAL_CONSTRAINTS
@@ -275,7 +275,7 @@ SELECT c.COLUMN_NAME,
 
   public function getReferenceColumns($table,$reftable)
   {
-    $references=array();
+    $references=[];
 
     $sql="SELECT rc.CONSTRAINT_NAME,rc.UPDATE_RULE,rc.DELETE_RULE,kcu.TABLE_NAME,kcu.COLUMN_NAME,kcu.REFERENCED_TABLE_NAME,kcu.REFERENCED_COLUMN_NAME
             FROM information_schema.REFERENTIAL_CONSTRAINTS AS rc
