@@ -65,7 +65,7 @@ class DataBase
    */
   public static function setCharset($charset)
   {
-    self::$db->set_charset(self::$charset);
+    self::$db->set_charset($charset);
   }
 
   /**
@@ -73,7 +73,7 @@ class DataBase
    */
   protected function __destruct()
   {
-    if (self::$db) self::$db->close();
+    if(self::$db) self::$db->close();
   }
 
   /**
@@ -131,7 +131,7 @@ abstract class EntityBase
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-   * Constructor
+   * Constructor - retrieve DB connection from singleton class
    */
   public function __construct()
   {
@@ -151,12 +151,12 @@ abstract class EntityBase
   }
 
   /**
-   * Returns primary keys in associative array
+   * Returns primary keys as associative array
    * @return array
    */
   public function getIds()
   {
-    $ids=array();
+    $ids=[];
     foreach($this->primkeys as $pk)
     {
       $ids[$pk]=$this->$pk;
@@ -227,17 +227,17 @@ abstract class EntityBase
 
   /**
    * Adds table fields (columns) to SQL query
-   * @param string $sql SQL statement
+   * @param string $sql SQL statement (by reference)
    */
   protected function addFields(&$sql)
   {
-    $fields=array();
+    $fields=[];
 
     foreach($this as $var=>$val)
     {
       if(in_array($var,$this->fields)) //include only allowed fields
       {
-        if(is_null($val) || $val==='NULL')
+        if(is_null($val) || strtoupper($val)==='NULL')
         {
           $fields[]="$var=NULL";
         }
@@ -310,7 +310,7 @@ abstract class EntityBase
    */
   protected function getObjects($sql,$Class)
   {
-    $Objects=array();
+    $Objects=[];
 
     if(class_exists($Class))
     {
@@ -387,7 +387,7 @@ abstract class EntityBase
    */
   protected function getArray($sql)
   {
-    $list=array();
+    $list=[];
 
     if($rst=$this->db->query($sql))
     {
@@ -412,7 +412,7 @@ abstract class EntityBase
    */
   protected function getAssocArray($sql)
   {
-    $list=array();
+    $list=[];
 
     if($rst=$this->db->query($sql))
     {
@@ -444,7 +444,7 @@ abstract class EntityBase
   /**
    * Returns the list of IDs and there are three possibilities:
    * @param string $glue (can be comma or AND operator)
-   * @param mixed $ids single PK value or array of PKs with values
+   * @param mixed $ids single PK value or associative array of PKs with values
    * @return string
    */
   private function getImplodedIds($glue,$ids)
