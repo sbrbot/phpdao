@@ -39,7 +39,7 @@ class DataBase
       mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); //Make MySQLi throw exceptions
       try
       {
-        self::$db = @new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+        self::$db = @new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME,DB_PORT);
         self::setCharset(DB_CHAR);
       }
       catch(mysqli_sql_exception $ex)

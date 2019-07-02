@@ -6,12 +6,14 @@ if(file_exists('../models/dao.xml'))
   $XmlDatabase=$XML->database;
   $db_host=$XmlDatabase[0]['host'];
   $db_name=$XmlDatabase[0]['name'];
+  $db_port=$XmlDatabase[0]['port'];
   $db_user=$XmlDatabase[0]['user'];
 }
 else
 {
   $db_host='localhost';
   $db_name='';
+  $db_port='3306';
   $db_user='';
 }
 
@@ -55,6 +57,14 @@ include('navbar.inc');
                 <div class="input-group-text"><i class="fa fa-database"></i></div>
               </div>
               <input id="DB_NAME" name="DB_NAME" type="text" class="form-control" value="<?= $db_name ?>">
+            </div>
+
+            <label for="DB_PORT" class="control-label">Port</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fa fa-plug"></i></div>
+              </div>
+              <input id="DB_PORT" name="DB_PORT" type="number" class="form-control" value="<?= $db_port ?>">
             </div>
 
             <label for="DB_USER" class="control-label">Username</label>

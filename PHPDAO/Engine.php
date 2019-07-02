@@ -9,6 +9,7 @@ class Engine
 {
   private $DB_HOST;
   private $DB_NAME;
+  private $DB_PORT;
   private $DB_USER;
   private $DB_PASS;
   private $DB_CHAR;
@@ -21,11 +22,12 @@ class Engine
   {
     $this->DB_HOST=$_SESSION['DB_HOST'];
     $this->DB_NAME=$_SESSION['DB_NAME'];
+    $this->DB_PORT=$_SESSION['DB_PORT'];
     $this->DB_USER=$_SESSION['DB_USER'];
     $this->DB_PASS=$_SESSION['DB_PASS'];
     $this->DB_CHAR=$_SESSION['DB_CHAR'];
 
-    $this->db=new mysqli($this->DB_HOST,$this->DB_USER,$this->DB_PASS,$this->DB_NAME);
+    $this->db=new mysqli($this->DB_HOST,$this->DB_USER,$this->DB_PASS,$this->DB_NAME,$this->DB_PORT);
     $this->db->set_charset($this->DB_CHAR);
     if($this->db->connect_error)
     {

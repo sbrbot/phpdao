@@ -8,6 +8,7 @@ if(isset($_POST['dao0']) || isset($_SESSION['DB_NAME']))
   {
     $_SESSION['DB_HOST']=$_POST['DB_HOST'];
     $_SESSION['DB_NAME']=$_POST['DB_NAME'];
+    $_SESSION['DB_PORT']=$_POST['DB_PORT'];
     $_SESSION['DB_USER']=$_POST['DB_USER'];
     $_SESSION['DB_PASS']=$_POST['DB_PASS'];
     $_SESSION['DB_CHAR']=$_POST['DB_CHAR'];

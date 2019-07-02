@@ -47,6 +47,7 @@ $da=
 
 const DB_HOST='{$_SESSION['DB_HOST']}';
 const DB_NAME='{$_SESSION['DB_NAME']}';
+const DB_PORT='{$_SESSION['DB_PORT']}';
 const DB_USER='{$_SESSION['DB_USER']}';
 const DB_PASS='{$_SESSION['DB_PASS']}';
 const DB_CHAR='{$_SESSION['DB_CHAR']}';
@@ -84,6 +85,7 @@ try
   $XMLtable=$XML->addChild('database');
   $XMLtable->addAttribute('host',$_SESSION['DB_HOST']);
   $XMLtable->addAttribute('name',$_SESSION['DB_NAME']);
+  $XMLtable->addAttribute('port',$_SESSION['DB_PORT']);
   $XMLtable->addAttribute('user',$_SESSION['DB_USER']);
   $XMLtable->addAttribute('charset',$_SESSION['DB_CHAR']);
 
