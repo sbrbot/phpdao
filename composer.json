@@ -1,6 +1,7 @@
 {
   "name": "sbrbot/phpdao",
   "description": "PHP Data Access Objects (DAO) Layer Builder",
+  "version": "3.7",
   "type": "web-app",
   "require": {"php": ">=7.0.0"},
   "authors": [{"name": "Stjepan Brbot", "email": "stjepan.brbot@gmail.com","role":"Developer"}],

@@ -353,13 +353,15 @@ class English
       elseif(in_array(substr($word,-1),array('x'))) $this->plural=$word.'es';
       elseif(substr($word,-1)==='f') $this->plural=substr($word,-1).'ves';
       elseif(substr($word,-2)==='fe') $this->plural=substr($word,-2).'ves';
+      elseif(substr($word,-2)==='us') $this->plural=$word.'es';
+      elseif(substr($word,-1)==='o') $this->plural=$word.'es';
       else $this->plural = $word.'s';
     }
 
     $this->camel=$word;
     //if(substr($word,-2)==='on') $this->camel=substr($word,0,-2).'On';
     if(substr($word,-2)==='by') $this->camel=substr($word,0,-2).'By';
-    if(substr($word,-2)==='id') $this->camel=substr($word,0,-2).'Id';
+    elseif(substr($word,-2)==='id') $this->camel=substr($word,0,-2).'Id';
     $this->camel=str_replace('type','Type',$this->camel);
   }
 }
