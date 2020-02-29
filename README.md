@@ -1,4 +1,4 @@
-PHP DAO Builder v3.6
+PHP DAO Builder v3.7
 ====================
 
 This is web application for building Data Access Objects layer from MySQL daatbase.
