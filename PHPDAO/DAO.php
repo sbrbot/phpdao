@@ -194,25 +194,10 @@ abstract class EntityBase
   //----------------------------------------------------------------------------
 
   /**
-   * Fills class variables of child object with array elements
+   * Populates (maps) class variables with array elements
    * @param array $array array of column=>value elements
    */
   public function populate(array $array)
-  {
-    foreach($array as $key=>$val)
-    {
-      if(in_array($key,array_merge($this->primkeys,$this->fields))) //include only allowed fields
-      {
-        $this->$key=$val;
-      }
-    }
-  }
-
-  /**
-   * Sanitizes and fills class variables of child object with array elements
-   * @param array $array array of column=>value elements
-   */
-  public function sanitize(array $array)
   {
     foreach($array as $key=>$val)
     {
@@ -237,7 +222,9 @@ abstract class EntityBase
     {
       if(in_array($var,$this->fields)) //include only allowed fields
       {
-        if(is_null($val) || strtoupper($val)==='NULL')
+        //in order to be set as NULL in the database
+        //object propety has to be set ot string 'NULL'
+        if(strtoupper($val)==='NULL')
         {
           $fields[]="$var=NULL";
         }

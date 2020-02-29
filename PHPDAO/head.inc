@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="PHP Data Access Objects Builder">
     <meta name="author" content="Stjepan Brbot">
-    <meta name="version" content="3.5">
+    <meta name="version" content="3.7">
 
     <title>PHP DAO Builder</title>
 
