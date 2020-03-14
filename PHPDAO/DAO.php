@@ -579,7 +579,7 @@ abstract class EntityBase
 
   /**
    * Dynamically builds INSERT+UPDATE query and saves a record in database
-   * if record does not exist it will be created, otherwise updated
+   * if record does not exist it will be created, otherwise updated (SAVE)
    * @param mixed $ids single PK value or array of PKs with values
    * @throws SaveException
    */
@@ -638,7 +638,7 @@ abstract class EntityBase
     }
     else
     {
-      throw new Exception('No columns defined!');
+      throw new Exception('No search conditions defined!');
     }
   }
 
